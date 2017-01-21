@@ -1,0 +1,142 @@
+.headBar {
+    height: 310px;
+    width: 100%;
+    background-color: rgb(245, 248, 250);
+    position: relative;
+}
+
+.blogNameBar {
+    color: rgb(49, 50, 50);
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mottoBar {
+    color: rgb(123, 124, 125);
+    text-align: center;
+    font-size: 18 px;
+    margin-top: 10px;
+}
+
+.bodyBar {
+    width: 710px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -355px;
+}
+
+article {
+    padding: 30px 0;
+    border-bottom: 1px solid rgb(235, 242, 245);
+    position: relative;
+}
+
+article::after {   
+    display: block;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border: #E7EEF2 1px solid;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    background: #FFF;
+    border-radius: 100%;
+    box-shadow: #FFF 0 0 0 5px;
+}
+
+h1, p {
+    margin: 0;
+}
+
+.articleBar .articleTitle {
+    font-size: 45px;
+    font-weight: bold;
+    color: rgb(17, 17, 17); 
+}
+
+.articleBar p,
+.articleBar p a {
+    color: rgb(58, 65, 69);
+}
+
+.articleBar p {
+    padding: 10px 0;
+}
+
+.articleBar footer {
+    margin-top: 10px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.articleBar footer img {
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    border-radius: 15px;
+}
+
+.articleBar footer div {
+    display: inline-block;
+    height: 25x;
+    line-height: 25px;
+    padding: 0 10px;
+    margin-left: 10px;
+    width: 100px;
+    border-left: 1px solid rgb(158, 171, 179);
+    color: rgb(158, 171, 179);
+}
+
+.pageList {
+    display: table;
+    position: relative;
+    width: 710px;
+    margin: 50px 0;
+}
+
+.pageList .newerPosts,
+.pageList .currentPage,
+.pageList .olderPosts {
+    display: table-cell;
+    color: rgb(136, 144, 147);
+    font-size: 14px;
+} 
+
+.pageList .newerPosts:hover,
+.pageList .olderPosts:hover {
+    cursor: pointer;
+}
+
+.pageList .newerPosts {
+    text-align: left;
+}
+
+.pageList .currentPage {
+    text-align: center;
+}
+
+.pageList .olderPosts {
+    text-align: right;
+}
+
+.pageList .innerBox {
+    display:  inline-block;
+    width: 125px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid rgb(136, 144, 147);
+    text-align: center;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+ 

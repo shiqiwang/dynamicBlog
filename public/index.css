@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'menu_iconfont';
+    src: url('menu_iconfont/iconfont.eot');
+    src: url('menu_iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('menu_iconfont/iconfont.woff') format('woff'),
+    url('menu_iconfont/iconfont.ttf') format('truetype'),
+    url('menu_iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family:  sans-serif, Arial, "Trebuchet MS", Helvetica;
+    overflow-x: hidden;
+    height: 100%;
+    /*无衬线字体*/
+}
+
+a {
+    text-decoration: none;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.menuBar {
+    height: 50px;
+    padding: 35px 50px;
+    position: relative;
+}
+
+.menuBar #menuBtn {
+    font-size: 14px;
+    color: rgb(158, 171, 179);
+    margin: 0;
+    position: absolute;
+    right: 50px;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid rgb(158, 171, 179);
+    background-color: rgb(245, 248, 250);
+    border-radius: 4px;
+}
+
+#menuBtn .menuIcon {
+    font-family: "menu_iconfont";
+    font-size: 18px;
+}
+
+.menuBar #menuBtn:hover {
+    background-color: #fff;
+    cursor: pointer;
+    border: 1px solid rgb(85, 85, 85);
+    color: rgb(85, 85, 85);
+}
+
+#sideMenuBar {
+    background-color: rgb(17, 17, 17);
+    width: 240px;
+    height: 100%;
+    position: fixed;
+    right: -240px; top: 0; bottom: 0;
+}
+
+.moveRight {
+    transform: translateX(0);
+    transition: transform 0.5s;
+}
+
+.moveLeft {
+    transform: translateX(-240px);
+    transition: transform 0.5s;
+}
+
+.linkBar {
+    list-style: none;
+    padding: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.linkBar li {
+    padding-top: 15px; 
+    border-bottom: 1px dashed #ccc;
+}
+
+.linkBar a {
+    color: rgb(245, 248, 250);
+}
+
+#loginBar {
+    height: 150px; 
+    width: 240px;
+    position: absolute;
+    bottom: 20px;
+    color: rgb(245, 248, 250);
+    text-align: center;
+    line-height: 40px;
+}
+
+#loginBar input {
+    width: 200px;
+    margin: 0 auto;
+    background-color: rgb(250, 255, 189);
+    border: 0;
+    height: 25px;
+    line-height: 25px;
+}
+
+#loginBtn {
+    height: 30px;
+    width: 200px;
+    background-color: rgb(240, 20, 0);
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    right: 20px; bottom: 20px;
+}
+
+#loginBtn:hover {
+    cursor: pointer;
+    background-color: rgb(255, 100, 100); 
+}

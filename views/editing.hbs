@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="editing.css">
+<div>
+    <div class="head">
+        <span>blog name:</span>
+        <input type="text" name="blogName" id="blogName" value="{{blogName}}"/>
+        <span>motto:</span>
+        <input type="text" name="motto" id="motto" value="{{motto}}"/>
+    </div>
+    <!--later, add some code for the links in the sideBar-->
+    <div id="articleTitle">
+        <div class="subhead">
+            <span>ALL POSTS</span>
+            <span>+</span>
+        </div>
+        <div id="articleTitleBar">
+            {{#each articleTitle}}
+            <a class="articleTitle" href="{{articleId}}">{{articleTitle}}</a>
+            {{/each}}
+        </div>
+    </div>
+    <div id="articleContent">
+
+    </div>
+</div> 
+<script src="jquery-3.1.0.js"></script>
+<script src="index.js"></script>
+<script src="editing.js"></script>

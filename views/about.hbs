@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="about.css">
+<div id="container">
+    <div class="headBar">
+        <div class="menuBar">
+            <div id="menuBtn"> 
+                <span class="menuIcon">&#xe60b</span>
+                <span>MENU</span>
+            </div>
+        </div>
+    </div>
+    <div id="bodyBar">
+    </div>
+</div>
+<div id="sideMenuBar">
+    <ul class="linkBar">
+        {{#each sidebarUrls}}
+        <li><a href="{{url}}">{{urlText}}</a></li>
+        {{/each}}
+    </ul>
+    <div id="loginBar">
+        <input type="text" id="emailAddress"/>
+        <input type="password" id="keywords"/>
+        <div id="loginBtn">登录</div>
+    </div>
+</div>
+<script src="jquery-3.1.0.js"></script>
+<script src="index.js"></script>

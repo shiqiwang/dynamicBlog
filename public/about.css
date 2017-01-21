@@ -1,0 +1,8 @@
+.headBar {
+    width: 100%;
+    min-height: 500px;
+    background-image: url(flower.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}

@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="home.css">
+<div id="container">
+    <div class="headBar">
+        <div class="menuBar">
+            <div id="menuBtn">
+                <span class="menuIcon">&#xe60b</span>
+                <span>MENU</span>
+            </div>
+        </div>
+        <div class="blogNameBar">{{blogName}}</div>
+        <div class="mottoBar">{{motto}}</div>
+    </div>
+    <div class="bodyBar">
+        {{#each articlesx}}
+        <article class="articleBar">
+            <a class="articleTitle" href="{{articleUrl}}">{{articleTitle}}</a>
+            <section>
+                <p>
+                    {{content}}
+                    <a class="readMore" href="{{articleUrl}}"> >> </a>
+                </p>
+            </section>
+            <footer>
+                <img src="{{../portriatUrl}}" alt="" />
+                <div>{{publishTime}}</div>
+            </footer>
+        </article>
+        {{/each}}
+        <div class="pageList">
+            <div class="newerPosts"><span class="innerBox">Newer Posts</span></div>
+            <div class="currentPage">Page&nbsp<span>1</span>&nbspof&nbsp<span>3</span></div>
+            <div class="olderPosts"><span class="innerBox">Older Posts</span></div>
+        </div>
+    </div>
+</div>
+<div id="sideMenuBar">
+    <ul class="linkBar">
+        {{#each sidebarUrls}}
+        <li><a href="{{url}}">{{urlText}}</a></li>
+        {{/each}}
+    </ul>
+    <div id="loginBar">
+        <input type="text" id="emailAddress"/>
+        <input type="password" id="keywords"/>
+        <div id="loginBtn">登录</div>
+    </div>
+</div>
+<!--<button id="tb">test button</button>-->
+<script src="jquery-3.1.0.js"></script>
+<script src="index.js"></script>
+<!--这里的index.js指的是public中的js，即前端部分的js文件-->
+

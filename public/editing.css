@@ -1,0 +1,75 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family:  sans-serif, Arial, "Trebuchet MS", Helvetica;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.head {
+    height: 60px;
+    background-color: rgb(36, 38, 40);
+    color: #fff;
+    line-height: 60px;
+    width: 100%;
+}
+
+.head span {
+    margin-left: 20px;
+    margin-right: 5px;
+    color: rgb(250, 255, 189); 
+}
+
+.head input {
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(250, 255, 189);
+    color: rgb(36, 38, 40);
+    padding: 5px;
+    width: 300px;
+}
+
+#articleTitle {
+    width: 520px;
+    position: absolute;
+    top: 60px; left: 0; bottom: 0;
+    border-right: 1px solid rgb(220, 220, 220);
+}
+
+#articleTitle .subhead {
+    height: 40px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    color: rgb(170, 170, 170);
+    line-height: 40px;
+}
+
+#articleTitle .subhead span:first-child {
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+#articleTitle .subhead span:last-child {
+    font-size: 30px;
+    float: right;
+    margin-right: 20px;
+    font-weight: bold;
+    color: rgb(159, 187, 88);
+}
+
+#articleTitle .subhead span:last-child:hover {
+    cursor: pointer;
+    color: rgb(132, 159, 65);
+}
+
+#articleContent {
+    position: absolute;
+    left: 520px;
+    right: 0;
+    top: 60px;
+    overflow-y: auto;
+}

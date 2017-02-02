@@ -73,3 +73,20 @@ body {
     top: 60px;
     overflow-y: auto;
 }
+
+.articleTitle {
+    height: 100px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    line-height: 100px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.articleTitle:hover {
+    cursor: pointer;
+    background-color: rgb(247, 247, 247);
+}
+
+#articleContent {
+    padding: 20px;
+}

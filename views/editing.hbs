@@ -10,15 +10,15 @@
     <div id="articleTitle">
         <div class="subhead">
             <span>ALL POSTS</span>
-            <span>+</span>
+            <span id="addArticleBtn">+</span>
         </div>
         <div id="articleTitleBar">
-            {{#each articleTitle}}
-            <a class="articleTitle" href="{{articleId}}">{{articleTitle}}</a>
+            {{#each articles}}
+            <div class="articleTitle" data-articleID="{{articleID}}">{{articleTitle}}</div>
             {{/each}}
         </div>
     </div>
-    <div id="articleContent">
+    <div id="articleContent" contenteditable="true">
 
     </div>
 </div> 

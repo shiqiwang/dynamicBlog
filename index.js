@@ -12,6 +12,9 @@ var hbs = require("express-handlebars").create({
     extname: ".hbs" //设置文件后缀名为.hbs
 });
 
+//使用post方法需要一些中间件，和get方法有区别
+var bodyParser = require("body-parser");
+
 var app = express();
 
 app.set("port", process.env.PORT || 3000); //设置端口
@@ -26,6 +29,10 @@ app.use(express.static(__dirname + "/public"));
 app.use(session({
     secret: "for dynamic blog"
 }));
+
+//post方法的中间件应用
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // home 页路由
 app.get( "/", function (req, res) {
@@ -72,9 +79,34 @@ app.get("/api/login", function (req, res) {
 //为editing page获取文章内容
 app.get("/api/get-article-content", function (req, res) {
     var articleID = req.query.id;
-    database.Article.find({articleID: articleID}, function (err, article) {
-        res.json(article[0].content);
+    database.Article.findOne({articleID: articleID}, function (err, article) {
+        res.json(article.content);
     });
+});
+
+//保存文章数据
+app.post("/api/save-data", function (req, res) {
+    var errors = false;
+    var data = req.body;
+    database.Article.findOne({articleID: data.articleID}, function(err, article) {
+        article.articleTitle = data.articleTitle;
+        article.content = data.articleContent;
+        article.save(function (err) {
+            if(err) {
+                errors = true; 
+            }
+        });
+    });
+    database.HomePageShell.findOne({}, function(err, homePageData) {
+        homePageData.blogName = data.blogName;
+        homePageData.motto = data.motto;
+        homePageData.save(function(err){
+            if(err) {
+                errors = true;
+            }
+        });
+    });
+    res.json(errors);
 });
 
 app.listen(app.get("port"), function () {

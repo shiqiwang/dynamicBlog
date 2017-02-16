@@ -7,7 +7,31 @@ $(document).ready(function () {
     //添加新文章
     $("#addArticleBtn").click(addNewArticle);
     //保存文章数据
-    $("#save").click(saveData);
+    $("#save").click(function () {
+        if($("#targetArticle").length) {
+            saveData();
+        } else {
+            return;
+        }
+    });
+    $("#delete").click(function () {
+        if($("#targetArticle").length) {
+            deleteArticle();
+        } else {
+            return;
+        }
+    });
+
+    function deleteArticle() {
+        var removedArticleId = $("#targetArticle").attr("data-articleid");
+        $.get("/api/delete-article", {id: removedArticleId}, function (isRemoved) {
+            if(isRemoved) {
+                $("#targetArticle").remove();
+            } else {
+                return;
+            }
+        });
+    }
 
     function loadArticleData(event) {
         var target = event.target;

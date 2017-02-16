@@ -109,10 +109,11 @@ app.post("/api/save-data", function (req, res) {
     res.json(errors);
 });
 
+//添加新文章
 app.post("/api/append-new-article", function (req, res) {
     var data = req.body;
     database.Article.find({}, function(err, articleArr) {
-        var newArticleId = articleArr.length + 1;
+        var newArticleId = articleArr[articleArr.length -1].articleID + 1;
         var newArticle = new database.Article();
         newArticle.articleID = newArticleId;
         newArticle.articleTitle = data.articleTitle;
@@ -125,6 +126,17 @@ app.post("/api/append-new-article", function (req, res) {
         });
         res.json(newArticleId);
     });
+});
+
+//删除文章
+app.get("/api/delete-article", function(req, res) {
+    var removedArticleId = req.query.id;
+    database.Article.remove({articleID: removedArticleId}, function (err) {
+        if(err) {
+            return;
+        }
+        res.json(true);
+    })
 });
 
 app.listen(app.get("port"), function () {

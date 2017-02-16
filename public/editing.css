@@ -42,7 +42,7 @@ body {
     color: #fff;
     line-height: 30px;
     text-align: center;
-    margin: 15px 30px 15px 30px;
+    margin: 15px 30px 15px 20px;
     border-radius: 2px;
 }
 
@@ -95,10 +95,23 @@ body {
 }
 
 .articleTitle:hover,
-.head #save:hover {
+.head #save:hover,
+#delete:hover {
     cursor: pointer;
 }
 
 #articleContent {
     padding: 20px;
+}
+
+#delete { 
+    float: right;
+    height: 30px;
+    width: 60px;
+    background-color: rgb(159, 187, 88);
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 15px 0;
 }

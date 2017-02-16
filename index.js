@@ -109,6 +109,24 @@ app.post("/api/save-data", function (req, res) {
     res.json(errors);
 });
 
+app.post("/api/append-new-article", function (req, res) {
+    var data = req.body;
+    database.Article.find({}, function(err, articleArr) {
+        var newArticleId = articleArr.length + 1;
+        var newArticle = new database.Article();
+        newArticle.articleID = newArticleId;
+        newArticle.articleTitle = data.articleTitle;
+        newArticle.content = data.articleContent;
+        newArticle.publishTime = data.publishTime;
+        newArticle.save(function(err) {
+            if(err) {
+                return;
+            }
+        });
+        res.json(newArticleId);
+    });
+});
+
 app.listen(app.get("port"), function () {
     console.log("服务器启动完成，端口为：" + app.get("port"));
 });

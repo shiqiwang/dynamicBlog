@@ -1,26 +1,56 @@
 $(document).ready(function () {
     //事件代理,加载文章数据
     $("#articleTitleBar").click(function (event) {
+        loadArticleData(event);
+    });
+
+    //添加新文章
+    $("#addArticleBtn").click(addNewArticle);
+    //保存文章数据
+    $("#save").click(saveData);
+
+    function loadArticleData(event) {
         var target = event.target;
         if(target && target.nodeName.toUpperCase() == "DIV") {
             var id = $(target).attr("data-articleID");
             $.get("/api/get-article-content", {id: id}, function (data) {
-                $("#articleContent").html(data);
+                if(data) {
+                    $("#articleContent").html(data);
+                } else {
+                    $("#articleContent").html("");
+                }
             });
-            $(".articleTitle").css("background-color", "#fff");
-            $(".articleTitle").removeAttr("id");
-            $(target).css("background-color", "rgb(247, 247, 247)");
-            $(target).attr("id", "targetArticle");
+            setTargetArticle(target);
             //如果某篇文章被选中后，用户点击了save按钮，默认该篇文章被修改，数据库数据更新
         }
-    });
+    }
 
-    //添加新文章
-    $("#addArticleBtn").click(function () {
-    });
+    function setTargetArticle(target) {
+        $(".articleTitle").css("background-color", "#fff");
+        $(".articleTitle").removeAttr("id");
+        $(target).css("background-color", "rgb(247, 247, 247)");
+        $(target).attr("id", "targetArticle");
+        $("#targetArticle").attr("contenteditable", "true");
+    }
 
-    //保存文章数据
-    $("#save").click(function () {
+    function addNewArticle() {
+        $("#articleTitleBar").append('<div class="articleTitle"></div>'); 
+        setTargetArticle(".articleTitle:last-child");
+        $.post(
+            "/api/append-new-article",
+            {
+                articleTitle: "",
+                articleContent: "",
+                publishTime: "2/16/2017"
+            },
+            function (data, status) {
+                $("#targetArticle").attr("data-articleid", data);
+                return;
+            }
+        );
+    }
+
+    function saveData() {    
         var blogName = $("#blogName").val();
         var motto = $("#motto").val(); 
         var articleTitle = $("#targetArticle").html();
@@ -39,5 +69,5 @@ $(document).ready(function () {
                 return;
             }   
         );
-    });
+    }
 });

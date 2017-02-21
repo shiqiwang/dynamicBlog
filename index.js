@@ -76,6 +76,14 @@ app.get("/api/login", function (req, res) {
     });
 });
 
+//article页面路由
+app.get("/article/:id", function (req, res) {
+    var id = Number(req.params.id);
+    getArticle(id, function (data) {
+        res.render("article", data);
+    });
+});
+
 //为editing page获取文章内容
 app.get("/api/get-article-content", function (req, res) {
     var articleID = req.query.id;
@@ -83,6 +91,7 @@ app.get("/api/get-article-content", function (req, res) {
         res.json(article.content);
     });
 });
+
 
 //保存文章数据
 app.post("/api/save-data", function (req, res) {
@@ -143,6 +152,7 @@ app.listen(app.get("port"), function () {
     console.log("服务器启动完成，端口为：" + app.get("port"));
 });
 
+//获取home页面基本信息
 function getHomePageData(callback) {
     database.HomePageShell.findOne({}, function (err, homePageData) {
         database.Article.find({}, function (err, articles) {
@@ -160,6 +170,7 @@ function getHomePageData(callback) {
     });
 }
 
+//获取about页面基本信息
 function getAboutPageData(callback) {
     database.SidebarUrl.find({}, function (err, sidebarUrls) {
         callback({
@@ -168,6 +179,7 @@ function getAboutPageData(callback) {
     });
 }
 
+//获取editing页面基本信息
 function getEditingPageData(callback) {
     database.HomePageShell.findOne({}, function (err, homePageData) {
         database.Article.find({}, function (err, articles) {
@@ -176,6 +188,16 @@ function getEditingPageData(callback) {
                 motto: homePageData.motto,
                 articles
             });
+        });
+    });
+}
+
+//获取文章数据
+function getArticle(id ,callback) {
+    database.Article.findOne({articleID: id}, function (err, article) {
+        callback({
+            articleTitle: article.articleTitle,
+            content: article.content
         });
     });
 }

@@ -14,11 +14,11 @@
     <div class="bodyBar">
         {{#each articles}}
         <article class="articleBar">
-            <a class="articleTitle" href="{{articleUrl}}">{{articleTitle}}</a>
+            <a class="articleTitle" href="/article/{{articleID}}">{{articleTitle}}</a>
             <section>
                 <p>
                     {{content}}
-                    <a class="readMore" href="{{articleUrl}}"> >> </a>
+                    <a class="readMore" href="/article/{{articleID}}"> >> </a>
                 </p>
             </section>
             <footer>

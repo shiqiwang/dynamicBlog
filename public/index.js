@@ -46,5 +46,18 @@ $(document).ready(function() {
         // }
         // xhr.send();
     });
+    
+    //article页面路由
+    $(".articleBar .articleTitle, .articleBar .readMore").click(function (event) {
+       event.stopPropagation();
+        var url = $(this).attr("href");
+        var idArr = url.split("/");
+        var id = idArr[idArr.length - 1];
+        $.get("/api/article", {id: id}, function (data) {
+            if(data) {
+                window.open("article");
+            }
+        });
+    });
 }
 );
